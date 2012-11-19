@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1722CAA2165A73B000A8ED02 /* FHAddPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1722CAA1165A73B000A8ED02 /* FHAddPinViewController.m */; };
+		17B4995B165A32A800B2F095 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B4995A165A32A800B2F095 /* CoreLocation.framework */; };
 		17BA09001649446300B730B2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BA08FF1649446300B730B2 /* UIKit.framework */; };
 		17BA09021649446300B730B2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BA09011649446300B730B2 /* Foundation.framework */; };
 		17BA09041649446300B730B2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BA09031649446300B730B2 /* CoreGraphics.framework */; };
@@ -23,9 +25,16 @@
 		17BA09231649446400B730B2 /* FHSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BA09221649446400B730B2 /* FHSecondViewController.m */; };
 		17BA09251649446400B730B2 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 17BA09241649446400B730B2 /* second.png */; };
 		17BA09271649446400B730B2 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17BA09261649446400B730B2 /* second@2x.png */; };
+		17BA09311649469500B730B2 /* FHCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BA09301649469500B730B2 /* FHCategoriesViewController.m */; };
+		17BA0934164963EA00B730B2 /* FHCatNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BA0933164963EA00B730B2 /* FHCatNavViewController.m */; };
+		17D141F316510608007D7B97 /* FHMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D141F216510608007D7B97 /* FHMapViewController.m */; };
+		17D141F616510628007D7B97 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D141F516510628007D7B97 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1722CAA0165A73B000A8ED02 /* FHAddPinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHAddPinViewController.h; sourceTree = "<group>"; };
+		1722CAA1165A73B000A8ED02 /* FHAddPinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHAddPinViewController.m; sourceTree = "<group>"; };
+		17B4995A165A32A800B2F095 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		17BA08FB1649446300B730B2 /* Föttmaninger Heide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Föttmaninger Heide.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17BA08FF1649446300B730B2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		17BA09011649446300B730B2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -40,14 +49,21 @@
 		17BA09131649446300B730B2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		17BA09151649446400B730B2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		17BA09181649446400B730B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		17BA091A1649446400B730B2 /* FHFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHFirstViewController.h; sourceTree = "<group>"; };
-		17BA091B1649446400B730B2 /* FHFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FHFirstViewController.m; sourceTree = "<group>"; };
-		17BA091D1649446400B730B2 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		17BA091F1649446400B730B2 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		17BA09211649446400B730B2 /* FHSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHSecondViewController.h; sourceTree = "<group>"; };
-		17BA09221649446400B730B2 /* FHSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FHSecondViewController.m; sourceTree = "<group>"; };
-		17BA09241649446400B730B2 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		17BA09261649446400B730B2 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		17BA091A1649446400B730B2 /* FHFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FHFirstViewController.h; path = "Föttmaninger Heide/FHFirstViewController.h"; sourceTree = "<group>"; };
+		17BA091B1649446400B730B2 /* FHFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FHFirstViewController.m; path = "Föttmaninger Heide/FHFirstViewController.m"; sourceTree = "<group>"; };
+		17BA091D1649446400B730B2 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = first.png; path = "Föttmaninger Heide/first.png"; sourceTree = "<group>"; };
+		17BA091F1649446400B730B2 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "first@2x.png"; path = "Föttmaninger Heide/first@2x.png"; sourceTree = "<group>"; };
+		17BA09211649446400B730B2 /* FHSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FHSecondViewController.h; path = "Föttmaninger Heide/FHSecondViewController.h"; sourceTree = "<group>"; };
+		17BA09221649446400B730B2 /* FHSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FHSecondViewController.m; path = "Föttmaninger Heide/FHSecondViewController.m"; sourceTree = "<group>"; };
+		17BA09241649446400B730B2 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = second.png; path = "Föttmaninger Heide/second.png"; sourceTree = "<group>"; };
+		17BA09261649446400B730B2 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "second@2x.png"; path = "Föttmaninger Heide/second@2x.png"; sourceTree = "<group>"; };
+		17BA092F1649469500B730B2 /* FHCategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FHCategoriesViewController.h; path = "Föttmaninger Heide/FHCategoriesViewController.h"; sourceTree = "<group>"; };
+		17BA09301649469500B730B2 /* FHCategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FHCategoriesViewController.m; path = "Föttmaninger Heide/FHCategoriesViewController.m"; sourceTree = "<group>"; };
+		17BA0932164963EA00B730B2 /* FHCatNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHCatNavViewController.h; sourceTree = "<group>"; };
+		17BA0933164963EA00B730B2 /* FHCatNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHCatNavViewController.m; sourceTree = "<group>"; };
+		17D141F116510608007D7B97 /* FHMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHMapViewController.h; sourceTree = "<group>"; };
+		17D141F216510608007D7B97 /* FHMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHMapViewController.m; sourceTree = "<group>"; };
+		17D141F516510628007D7B97 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17B4995B165A32A800B2F095 /* CoreLocation.framework in Frameworks */,
+				17D141F616510628007D7B97 /* MapKit.framework in Frameworks */,
 				17BA09001649446300B730B2 /* UIKit.framework in Frameworks */,
 				17BA09021649446300B730B2 /* Foundation.framework in Frameworks */,
 				17BA09041649446300B730B2 /* CoreGraphics.framework in Frameworks */,
@@ -67,6 +85,8 @@
 		17BA08F01649446300B730B2 = {
 			isa = PBXGroup;
 			children = (
+				17BA092E164944CE00B730B2 /* View Controllers */,
+				17BA092D1649449F00B730B2 /* Images */,
 				17BA09051649446300B730B2 /* Föttmaninger Heide */,
 				17BA08FE1649446300B730B2 /* Frameworks */,
 				17BA08FC1649446300B730B2 /* Products */,
@@ -84,6 +104,8 @@
 		17BA08FE1649446300B730B2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				17B4995A165A32A800B2F095 /* CoreLocation.framework */,
+				17D141F516510628007D7B97 /* MapKit.framework */,
 				17BA08FF1649446300B730B2 /* UIKit.framework */,
 				17BA09011649446300B730B2 /* Foundation.framework */,
 				17BA09031649446300B730B2 /* CoreGraphics.framework */,
@@ -97,14 +119,6 @@
 				17BA090E1649446300B730B2 /* FHAppDelegate.h */,
 				17BA090F1649446300B730B2 /* FHAppDelegate.m */,
 				17BA09171649446400B730B2 /* MainStoryboard.storyboard */,
-				17BA091A1649446400B730B2 /* FHFirstViewController.h */,
-				17BA091B1649446400B730B2 /* FHFirstViewController.m */,
-				17BA091D1649446400B730B2 /* first.png */,
-				17BA091F1649446400B730B2 /* first@2x.png */,
-				17BA09211649446400B730B2 /* FHSecondViewController.h */,
-				17BA09221649446400B730B2 /* FHSecondViewController.m */,
-				17BA09241649446400B730B2 /* second.png */,
-				17BA09261649446400B730B2 /* second@2x.png */,
 				17BA09061649446300B730B2 /* Supporting Files */,
 			);
 			path = "Föttmaninger Heide";
@@ -122,6 +136,36 @@
 				17BA09151649446400B730B2 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		17BA092D1649449F00B730B2 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				17BA091D1649446400B730B2 /* first.png */,
+				17BA091F1649446400B730B2 /* first@2x.png */,
+				17BA09241649446400B730B2 /* second.png */,
+				17BA09261649446400B730B2 /* second@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		17BA092E164944CE00B730B2 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				17BA092F1649469500B730B2 /* FHCategoriesViewController.h */,
+				17BA09301649469500B730B2 /* FHCategoriesViewController.m */,
+				17BA091A1649446400B730B2 /* FHFirstViewController.h */,
+				17BA091B1649446400B730B2 /* FHFirstViewController.m */,
+				17BA09211649446400B730B2 /* FHSecondViewController.h */,
+				17BA09221649446400B730B2 /* FHSecondViewController.m */,
+				17BA0932164963EA00B730B2 /* FHCatNavViewController.h */,
+				17BA0933164963EA00B730B2 /* FHCatNavViewController.m */,
+				17D141F116510608007D7B97 /* FHMapViewController.h */,
+				17D141F216510608007D7B97 /* FHMapViewController.m */,
+				1722CAA0165A73B000A8ED02 /* FHAddPinViewController.h */,
+				1722CAA1165A73B000A8ED02 /* FHAddPinViewController.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +243,10 @@
 				17BA09101649446300B730B2 /* FHAppDelegate.m in Sources */,
 				17BA091C1649446400B730B2 /* FHFirstViewController.m in Sources */,
 				17BA09231649446400B730B2 /* FHSecondViewController.m in Sources */,
+				17BA09311649469500B730B2 /* FHCategoriesViewController.m in Sources */,
+				17BA0934164963EA00B730B2 /* FHCatNavViewController.m in Sources */,
+				17D141F316510608007D7B97 /* FHMapViewController.m in Sources */,
+				1722CAA2165A73B000A8ED02 /* FHAddPinViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +362,7 @@
 				17BA092C1649446400B730B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
