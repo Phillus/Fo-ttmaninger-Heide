@@ -16,7 +16,12 @@
 @property (strong, nonatomic) CLLocationManager *locManager;
 @property (nonatomic) BOOL createNewAnnotaion;
 @property (nonatomic) CGPoint touchPoint;
+@property (strong, nonatomic) NSString *updatedTitle;
+@property (strong, nonatomic) NSString *updatedDesc;
+@property (strong, nonatomic) NSString *updatedType;
+@property (nonatomic) BOOL update;
 
 -(IBAction)longPress:(UILongPressGestureRecognizer *)recognizer;
+-(void) updateCurrentAnnotation: (NSString *)title :(NSString *)desc: (NSString *)type;
 
 @end

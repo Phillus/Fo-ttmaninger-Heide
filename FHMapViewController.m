@@ -91,7 +91,6 @@
 }
 
 -(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    NSLog(@"touches ended");
     
     if(createNewAnnotaion == YES){
         
@@ -111,14 +110,11 @@
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    NSLog(@"touches began");
 }
 
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-    NSLog(@"%@", annotation);
     if (annotation==self.myMap.userLocation ) {
-        NSLog(@"user location pin");
         return nil;
     }else {
         MKPinAnnotationView *pinView = (MKPinAnnotationView *) [self.myMap dequeueReusableAnnotationViewWithIdentifier:@"pinView"];
@@ -130,13 +126,26 @@
             
             UIButton *discButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
             pinView.rightCalloutAccessoryView = discButton;
-            NSLog(@"ADD DISC BUTTON");
         }else {
-            NSLog(@"DONT ADD DISC BUTTON");
             pinView.annotation = annotation;
         }
         return pinView;
     }
+}
+-(void) updateCurrentAnnotation: (NSString *)title :(NSString *)desc: (NSString *)type {
+    self.updatedTitle = title;
+    self.updatedDesc = desc;
+    self.updatedType = type;
+    self.update = YES;
+    id<MKAnnotation> currentAnnotation = [self.myMap.selectedAnnotations objectAtIndex:0];
+    MKPointAnnotation *newAnnotation = [[MKPointAnnotation alloc] init];
+    [newAnnotation setCoordinate:[currentAnnotation coordinate]];
+    [newAnnotation setTitle:self.updatedTitle];
+    [newAnnotation setSubtitle:self.updatedDesc];
+    [self.myMap addAnnotation: newAnnotation];
+    [self.myMap selectAnnotation:newAnnotation animated:YES];
+    
+    [self.myMap removeAnnotation:currentAnnotation];
 }
 
 -(void) mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
@@ -144,7 +153,14 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    id<MKAnnotation> currentAnnotation = [self.myMap.selectedAnnotations objectAtIndex:0];
     FHAddPinViewController *pinViewController = (FHAddPinViewController *) segue.destinationViewController;
+    pinViewController.parentMapController = self;
+    pinViewController.title = [[UILabel alloc] init];
+    pinViewController.title.text = [currentAnnotation title];
+    pinViewController.desc = [[UILabel alloc] init];
+    pinViewController.desc.text = [currentAnnotation subtitle];
+    NSLog(@"title: %@",[currentAnnotation title]);
     [pinViewController setHidesBottomBarWhenPushed:YES];
 }
 

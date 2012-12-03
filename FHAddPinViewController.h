@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FHMapViewController.h"
 
-@interface FHAddPinViewController : UITableViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface FHAddPinViewController : UITableViewController
 
-@property (strong, nonatomic) IBOutlet UIView *picerDelView;
-@property (strong, nonatomic) IBOutlet UIView *picerControllerView;
-@property (strong, nonatomic) IBOutlet UIPickerView *pickerView;
+@property (strong, nonatomic) UILabel *categorie;
+@property (strong, nonatomic) UIView *categorieView;
+@property (strong, nonatomic) UILabel *title;
+@property (strong, nonatomic) UILabel *desc;
+@property (strong, nonatomic) FHMapViewController *parentMapController;
 
 @end

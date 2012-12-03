@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1722CAA2165A73B000A8ED02 /* FHAddPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1722CAA1165A73B000A8ED02 /* FHAddPinViewController.m */; };
 		17B4995B165A32A800B2F095 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B4995A165A32A800B2F095 /* CoreLocation.framework */; };
+		17B54BAA16636F3A00339773 /* FHSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B54BA916636F3A00339773 /* FHSearchResultViewController.m */; };
+		17B54BAE1663752900339773 /* FHNewPinCategorieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B54BAD1663752900339773 /* FHNewPinCategorieViewController.m */; };
+		17B54BB4166CBA2200339773 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17B54BB2166CBA2200339773 /* Model.xcdatamodeld */; };
 		17BA09001649446300B730B2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BA08FF1649446300B730B2 /* UIKit.framework */; };
 		17BA09021649446300B730B2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BA09011649446300B730B2 /* Foundation.framework */; };
 		17BA09041649446300B730B2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BA09031649446300B730B2 /* CoreGraphics.framework */; };
@@ -19,10 +22,8 @@
 		17BA09141649446300B730B2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17BA09131649446300B730B2 /* Default@2x.png */; };
 		17BA09161649446400B730B2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17BA09151649446400B730B2 /* Default-568h@2x.png */; };
 		17BA09191649446400B730B2 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17BA09171649446400B730B2 /* MainStoryboard.storyboard */; };
-		17BA091C1649446400B730B2 /* FHFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BA091B1649446400B730B2 /* FHFirstViewController.m */; };
 		17BA091E1649446400B730B2 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 17BA091D1649446400B730B2 /* first.png */; };
 		17BA09201649446400B730B2 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17BA091F1649446400B730B2 /* first@2x.png */; };
-		17BA09231649446400B730B2 /* FHSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BA09221649446400B730B2 /* FHSecondViewController.m */; };
 		17BA09251649446400B730B2 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 17BA09241649446400B730B2 /* second.png */; };
 		17BA09271649446400B730B2 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17BA09261649446400B730B2 /* second@2x.png */; };
 		17BA09311649469500B730B2 /* FHCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BA09301649469500B730B2 /* FHCategoriesViewController.m */; };
@@ -35,6 +36,11 @@
 		1722CAA0165A73B000A8ED02 /* FHAddPinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHAddPinViewController.h; sourceTree = "<group>"; };
 		1722CAA1165A73B000A8ED02 /* FHAddPinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHAddPinViewController.m; sourceTree = "<group>"; };
 		17B4995A165A32A800B2F095 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		17B54BA816636F3A00339773 /* FHSearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHSearchResultViewController.h; sourceTree = "<group>"; };
+		17B54BA916636F3A00339773 /* FHSearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHSearchResultViewController.m; sourceTree = "<group>"; };
+		17B54BAC1663752900339773 /* FHNewPinCategorieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHNewPinCategorieViewController.h; sourceTree = "<group>"; };
+		17B54BAD1663752900339773 /* FHNewPinCategorieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHNewPinCategorieViewController.m; sourceTree = "<group>"; };
+		17B54BB3166CBA2200339773 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		17BA08FB1649446300B730B2 /* Föttmaninger Heide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Föttmaninger Heide.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17BA08FF1649446300B730B2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		17BA09011649446300B730B2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -49,12 +55,8 @@
 		17BA09131649446300B730B2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		17BA09151649446400B730B2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		17BA09181649446400B730B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		17BA091A1649446400B730B2 /* FHFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FHFirstViewController.h; path = "Föttmaninger Heide/FHFirstViewController.h"; sourceTree = "<group>"; };
-		17BA091B1649446400B730B2 /* FHFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FHFirstViewController.m; path = "Föttmaninger Heide/FHFirstViewController.m"; sourceTree = "<group>"; };
 		17BA091D1649446400B730B2 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = first.png; path = "Föttmaninger Heide/first.png"; sourceTree = "<group>"; };
 		17BA091F1649446400B730B2 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "first@2x.png"; path = "Föttmaninger Heide/first@2x.png"; sourceTree = "<group>"; };
-		17BA09211649446400B730B2 /* FHSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FHSecondViewController.h; path = "Föttmaninger Heide/FHSecondViewController.h"; sourceTree = "<group>"; };
-		17BA09221649446400B730B2 /* FHSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FHSecondViewController.m; path = "Föttmaninger Heide/FHSecondViewController.m"; sourceTree = "<group>"; };
 		17BA09241649446400B730B2 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = second.png; path = "Föttmaninger Heide/second.png"; sourceTree = "<group>"; };
 		17BA09261649446400B730B2 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "second@2x.png"; path = "Föttmaninger Heide/second@2x.png"; sourceTree = "<group>"; };
 		17BA092F1649469500B730B2 /* FHCategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FHCategoriesViewController.h; path = "Föttmaninger Heide/FHCategoriesViewController.h"; sourceTree = "<group>"; };
@@ -82,6 +84,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17B54BAF16637EFD00339773 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				17B54BA816636F3A00339773 /* FHSearchResultViewController.h */,
+				17B54BA916636F3A00339773 /* FHSearchResultViewController.m */,
+				17BA092F1649469500B730B2 /* FHCategoriesViewController.h */,
+				17BA09301649469500B730B2 /* FHCategoriesViewController.m */,
+				17BA0932164963EA00B730B2 /* FHCatNavViewController.h */,
+				17BA0933164963EA00B730B2 /* FHCatNavViewController.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		17B54BB016637F0C00339773 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				17D141F116510608007D7B97 /* FHMapViewController.h */,
+				17D141F216510608007D7B97 /* FHMapViewController.m */,
+				1722CAA0165A73B000A8ED02 /* FHAddPinViewController.h */,
+				1722CAA1165A73B000A8ED02 /* FHAddPinViewController.m */,
+				17B54BAC1663752900339773 /* FHNewPinCategorieViewController.h */,
+				17B54BAD1663752900339773 /* FHNewPinCategorieViewController.m */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		17B54BB1166CB9FA00339773 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				17B54BB2166CBA2200339773 /* Model.xcdatamodeld */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
 		17BA08F01649446300B730B2 = {
 			isa = PBXGroup;
 			children = (
@@ -152,18 +188,9 @@
 		17BA092E164944CE00B730B2 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				17BA092F1649469500B730B2 /* FHCategoriesViewController.h */,
-				17BA09301649469500B730B2 /* FHCategoriesViewController.m */,
-				17BA091A1649446400B730B2 /* FHFirstViewController.h */,
-				17BA091B1649446400B730B2 /* FHFirstViewController.m */,
-				17BA09211649446400B730B2 /* FHSecondViewController.h */,
-				17BA09221649446400B730B2 /* FHSecondViewController.m */,
-				17BA0932164963EA00B730B2 /* FHCatNavViewController.h */,
-				17BA0933164963EA00B730B2 /* FHCatNavViewController.m */,
-				17D141F116510608007D7B97 /* FHMapViewController.h */,
-				17D141F216510608007D7B97 /* FHMapViewController.m */,
-				1722CAA0165A73B000A8ED02 /* FHAddPinViewController.h */,
-				1722CAA1165A73B000A8ED02 /* FHAddPinViewController.m */,
+				17B54BB1166CB9FA00339773 /* Core Data */,
+				17B54BB016637F0C00339773 /* Map */,
+				17B54BAF16637EFD00339773 /* Categories */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -241,12 +268,13 @@
 			files = (
 				17BA090C1649446300B730B2 /* main.m in Sources */,
 				17BA09101649446300B730B2 /* FHAppDelegate.m in Sources */,
-				17BA091C1649446400B730B2 /* FHFirstViewController.m in Sources */,
-				17BA09231649446400B730B2 /* FHSecondViewController.m in Sources */,
 				17BA09311649469500B730B2 /* FHCategoriesViewController.m in Sources */,
 				17BA0934164963EA00B730B2 /* FHCatNavViewController.m in Sources */,
 				17D141F316510608007D7B97 /* FHMapViewController.m in Sources */,
 				1722CAA2165A73B000A8ED02 /* FHAddPinViewController.m in Sources */,
+				17B54BAA16636F3A00339773 /* FHSearchResultViewController.m in Sources */,
+				17B54BAE1663752900339773 /* FHNewPinCategorieViewController.m in Sources */,
+				17B54BB4166CBA2200339773 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +393,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		17B54BB2166CBA2200339773 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				17B54BB3166CBA2200339773 /* Model.xcdatamodel */,
+			);
+			currentVersion = 17B54BB3166CBA2200339773 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 17BA08F21649446300B730B2 /* Project object */;
 }

@@ -96,17 +96,15 @@
         }
     }
     
-    NSLog(@"DICT %@",tmpDic);
-    
     if(isEmpty == YES && [statusArray count]>0){
-        return 2;
+        return 2; // SUCHERGEBNIS ANZEIGEN
     }else {
         if(!isEmpty){
             NSLog(@"allKeys %@",[[tmpDic allKeys]sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]);
-            return [tmpDic count]+1;
+            return [tmpDic count]+1; // Ohne BACK Button
         }else{
             NSLog(@"allKeys %@",[[tmpDic allKeys]sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]);
-            return [tmpDic count];
+            return [tmpDic count]; // Mit BACK Button
         }
     }
 }
@@ -188,14 +186,33 @@
 }
 */
 
+- (BOOL) checkStatusArray {
+    NSDictionary *tmpDic = categoriesArray;
+    BOOL isEmpty = YES;
+    int countDepth = 0;
+    for(NSString *status in statusArray){
+        tmpDic = (NSDictionary *)[tmpDic objectForKey:status];
+        countDepth++;
+        if([status isEqualToString:[tmpDic description]]){
+            isEmpty = YES;
+        }else{
+            isEmpty = NO;
+        }
+    }
+    return isEmpty;
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+    BOOL isEmpty = [self checkStatusArray];
     
     if(indexPath.row==0 && [selectedCell.textLabel.text isEqualToString:@"Back"]){
         [self returnToPrev];
+    }else if(isEmpty == YES && [statusArray count]>0){
+        [self performSegueWithIdentifier:@"showSearchResultEntity" sender:self]; // SUCHERGEBNIS ANZEIGEN
     }
     else{
         UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
@@ -208,5 +225,4 @@
     [statusArray removeObjectAtIndex:[statusArray count]-1];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationRight];
 }
-
 @end

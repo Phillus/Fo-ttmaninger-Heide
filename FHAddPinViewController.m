@@ -7,12 +7,15 @@
 //
 
 #import "FHAddPinViewController.h"
+#import "FHNewPinCategorieViewController.h"
 
 @interface FHAddPinViewController ()
 
 @end
 
 @implementation FHAddPinViewController
+
+@synthesize title, categorie, desc, categorieView, parentMapController;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,20 +35,34 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.pickerView.frame = CGRectMake(0, 460, 320, 216);
-
+    NSLog(@"title.text = %@",title.text);
+    self.navigationItem.hidesBackButton = YES;
+	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back"
+                                                                             style:UIBarButtonItemStyleBordered target:self action:@selector(backButtonIsPressed:)];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.editButtonItem setTitle:@"Abbrechen"];
+    //[self.editButtonItem setAction:@selector(backButtonIsPressed:)];
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)backButtonIsPressed:(id)sender{
+    NSLog(@"desc %@", desc.text);
+    if([title.text isEqualToString:@""]){
+        UIAlertView *pleaseFill = [[UIAlertView alloc] initWithTitle:@"Leeres Felde" message:@"Bitte füllen sie das Feld Titel aus" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+        [pleaseFill show];
+    }else{
+        [parentMapController updateCurrentAnnotation:title.text :desc.text :categorie.text];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark - Table view data source
@@ -66,25 +83,31 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [[UITableViewCell alloc]init];
+    UILabel *tmpLabel = [[UILabel alloc] init];
     
     switch(indexPath.row){
         case 0:
             CellIdentifier = @"titleCell";
             cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-            
+            //cell.textLabel.text = title.text;
+            tmpLabel = (UILabel *)[cell viewWithTag:002];
+            tmpLabel.text = title.text;
+            title = tmpLabel;
             return  cell;
             break;
         case 1:
             CellIdentifier = @"typeCell";
             cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-            self.picerDelView = [cell viewWithTag:22];
-            
+            categorie = (UILabel *) [[cell viewWithTag:22] viewWithTag:23];
+            categorieView = (UIView *) [cell viewWithTag:22];
             return  cell;
             break;
         case 2:
             CellIdentifier = @"descCell";
             cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-            
+            tmpLabel = (UILabel *)[cell viewWithTag:32];
+            tmpLabel.text = desc.text;
+            desc = tmpLabel;
             return  cell;
             break;
         default:
@@ -148,47 +171,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.row == 1){
-        NSLog(@"animate in");
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:0.3];
-        self.pickerView.frame = CGRectMake(0, 200, 320, 216);
-        [UIView commitAnimations];
-        
+        FHNewPinCategorieViewController *newPinController = [[FHNewPinCategorieViewController alloc] init];
+        newPinController.prevController = self;
+        [self presentViewController:newPinController animated:YES completion:nil];
     }
-}
-
-#pragma mark - Picker View delegate
-
--(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    self.picerDelView.backgroundColor = [UIColor greenColor];
-}
-
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    switch (row) {
-        case 0:
-            return @"Vögel";
-            break;
-        case 1:
-            return @"Pflanzen";
-            break;
-        case 2:
-            return @"Alle";
-            break;
-            
-        default:
-            return @"default";
-            break;
-    }
-}
-
-
-
--(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-    return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    return 3;
 }
 
 @end
