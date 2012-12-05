@@ -159,12 +159,14 @@
     [newAnnotation setTitle:self.updatedTitle];
     [newAnnotation setSubtitle:self.updatedDesc];
     [self.myMap addAnnotation: newAnnotation];
-    [self.myMap selectAnnotation:newAnnotation animated:YES];
     annotationIsSaved = YES;
     
     [self.myMap removeAnnotation:currentAnnotation];
     
     [self addAnnotationToCoreDataWithTitle:title andDesc:desc andType:type andLongitude:[NSNumber numberWithDouble: newAnnotation.coordinate.longitude] andLatitude:[NSNumber numberWithDouble: newAnnotation.coordinate.latitude]];
+    
+    
+    [self.myMap selectAnnotation:newAnnotation animated:YES];
 }
 
 -(void) mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {

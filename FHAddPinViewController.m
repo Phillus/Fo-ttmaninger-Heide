@@ -43,9 +43,12 @@
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    [self.editButtonItem setTitle:@"Abbrechen"];
     //[self.editButtonItem setAction:@selector(backButtonIsPressed:)];
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Abbrechen" style:UIBarButtonItemStylePlain  target:self action:@selector(abortEditing:)];
+}
+
+-(void) abortEditing: (id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning
