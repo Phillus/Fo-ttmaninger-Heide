@@ -7,6 +7,7 @@
 //
 
 #import "FHCategoriesViewController.h"
+#import "FHDiashowViewController.h"
 
 @interface FHCategoriesViewController ()
 
@@ -224,5 +225,13 @@
 - (void)returnToPrev {
     [statusArray removeObjectAtIndex:[statusArray count]-1];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationRight];
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"showSearchResultEntity"]){
+        FHDiashowViewController *diashowController = (FHDiashowViewController *) segue.destinationViewController;
+        diashowController.kNumberOfPages = [self.tableView numberOfRowsInSection:0]-1;
+        NSLog(@"NUMBER OF ROWS IN SECTION 0 = %i",[self.tableView numberOfRowsInSection:0]-1);
+    }
 }
 @end

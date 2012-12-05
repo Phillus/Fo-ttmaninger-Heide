@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
@@ -293,7 +293,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="JxB-Rk-zNg" kind="push" identifier="showSearchResultEntity" id="6JQ-m2-HuM"/>
+                                    <segue destination="CBj-Tb-gyT" kind="push" identifier="showSearchResultEntity" id="Heg-j9-Hg4"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -320,42 +320,40 @@
             </objects>
             <point key="canvasLocation" x="1187" y="-653"/>
         </scene>
-        <!--Search Result View Controller-->
-        <scene sceneID="uk7-ak-F0K">
+        <!--Diashow View Controller-->
+        <scene sceneID="RZJ-eF-NCX">
             <objects>
-                <tableViewController id="JxB-Rk-zNg" customClass="FHSearchResultViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gIX-u3-mZm">
+                <viewController id="CBj-Tb-gyT" customClass="FHDiashowViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dUl-uN-fLM">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="titleCell" textLabel="YW9-Uf-N2W" style="IBUITableViewCellStyleDefault" id="z4A-5j-9ZR">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YW9-Uf-N2W">
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="JxB-Rk-zNg" id="uQp-wV-dxd"/>
-                            <outlet property="delegate" destination="JxB-Rk-zNg" id="zAV-cO-gkA"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="mrg-wI-RDz"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Tnb-kI-bAJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Mq8-Lt-iPM">
+                                <connections>
+                                    <action selector="changePage:" destination="CBj-Tb-gyT" eventType="valueChanged" id="gEa-Yu-cJv"/>
+                                </connections>
+                            </pageControl>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgf-cd-2QO"/>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Mq8-Lt-iPM" firstAttribute="centerX" secondItem="tgf-cd-2QO" secondAttribute="centerX" type="default" id="3VI-xv-8cl"/>
+                            <constraint firstItem="tgf-cd-2QO" firstAttribute="top" secondItem="dUl-uN-fLM" secondAttribute="top" type="default" id="Wng-G8-bKc"/>
+                            <constraint firstAttribute="bottom" secondItem="tgf-cd-2QO" secondAttribute="bottom" constant="36" id="fsu-39-5Pq"/>
+                            <constraint firstItem="Mq8-Lt-iPM" firstAttribute="bottom" secondItem="dUl-uN-fLM" secondAttribute="bottom" type="default" id="jeG-HL-07R"/>
+                            <constraint firstItem="tgf-cd-2QO" firstAttribute="trailing" secondItem="dUl-uN-fLM" secondAttribute="trailing" type="default" id="jzr-dB-yQm"/>
+                            <constraint firstItem="tgf-cd-2QO" firstAttribute="leading" secondItem="dUl-uN-fLM" secondAttribute="leading" type="default" id="rpC-Fi-9Jy"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="GpD-Bt-Jp8"/>
+                    <connections>
+                        <outlet property="pageControl" destination="Mq8-Lt-iPM" id="uR0-6I-boy"/>
+                        <outlet property="scrollView" destination="tgf-cd-2QO" id="PrH-6E-l7h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5uc-um-oSf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1624" y="-653"/>
+            <point key="canvasLocation" x="1612" y="-653"/>
         </scene>
         <!--Cat Nav View Controller - Item-->
         <scene sceneID="hqc-E0-Kih">
@@ -378,6 +376,35 @@
         <image name="first.png" width="30" height="30"/>
         <image name="second.png" width="30" height="30"/>
     </resources>
+    <classes>
+        <class className="FHAddPinViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FHAddPinViewController.h"/>
+        </class>
+        <class className="FHCatNavViewController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FHCatNavViewController.h"/>
+        </class>
+        <class className="FHCategoriesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FHCategoriesViewController.h"/>
+        </class>
+        <class className="FHDiashowViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FHDiashowViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="changePage:"/>
+                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="FHMapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FHMapViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="longPress:" candidateClass="UILongPressGestureRecognizer"/>
+                <relationship kind="outlet" name="myMap" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

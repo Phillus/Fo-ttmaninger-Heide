@@ -30,6 +30,9 @@
 		17BA09271649446400B730B2 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17BA09261649446400B730B2 /* second@2x.png */; };
 		17BA09311649469500B730B2 /* FHCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BA09301649469500B730B2 /* FHCategoriesViewController.m */; };
 		17BA0934164963EA00B730B2 /* FHCatNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BA0933164963EA00B730B2 /* FHCatNavViewController.m */; };
+		17C294A2166F6E9900E8F54B /* FHDiashowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C294A1166F6E9900E8F54B /* FHDiashowViewController.m */; };
+		17C294A7166F6FDA00E8F54B /* FHEntityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C294A5166F6FDA00E8F54B /* FHEntityViewController.m */; };
+		17C294A8166F6FDA00E8F54B /* FHEntityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17C294A6166F6FDA00E8F54B /* FHEntityViewController.xib */; };
 		17D141F316510608007D7B97 /* FHMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D141F216510608007D7B97 /* FHMapViewController.m */; };
 		17D141F616510628007D7B97 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D141F516510628007D7B97 /* MapKit.framework */; };
 /* End PBXBuildFile section */
@@ -68,6 +71,11 @@
 		17BA09301649469500B730B2 /* FHCategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FHCategoriesViewController.m; path = "Föttmaninger Heide/FHCategoriesViewController.m"; sourceTree = "<group>"; };
 		17BA0932164963EA00B730B2 /* FHCatNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHCatNavViewController.h; sourceTree = "<group>"; };
 		17BA0933164963EA00B730B2 /* FHCatNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHCatNavViewController.m; sourceTree = "<group>"; };
+		17C294A0166F6E9900E8F54B /* FHDiashowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHDiashowViewController.h; sourceTree = "<group>"; };
+		17C294A1166F6E9900E8F54B /* FHDiashowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHDiashowViewController.m; sourceTree = "<group>"; };
+		17C294A4166F6FDA00E8F54B /* FHEntityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHEntityViewController.h; sourceTree = "<group>"; };
+		17C294A5166F6FDA00E8F54B /* FHEntityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHEntityViewController.m; sourceTree = "<group>"; };
+		17C294A6166F6FDA00E8F54B /* FHEntityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FHEntityViewController.xib; sourceTree = "<group>"; };
 		17D141F116510608007D7B97 /* FHMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHMapViewController.h; sourceTree = "<group>"; };
 		17D141F216510608007D7B97 /* FHMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHMapViewController.m; sourceTree = "<group>"; };
 		17D141F516510628007D7B97 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -99,6 +107,11 @@
 				17BA09301649469500B730B2 /* FHCategoriesViewController.m */,
 				17BA0932164963EA00B730B2 /* FHCatNavViewController.h */,
 				17BA0933164963EA00B730B2 /* FHCatNavViewController.m */,
+				17C294A0166F6E9900E8F54B /* FHDiashowViewController.h */,
+				17C294A1166F6E9900E8F54B /* FHDiashowViewController.m */,
+				17C294A4166F6FDA00E8F54B /* FHEntityViewController.h */,
+				17C294A5166F6FDA00E8F54B /* FHEntityViewController.m */,
+				17C294A6166F6FDA00E8F54B /* FHEntityViewController.xib */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -265,6 +278,7 @@
 				17BA09201649446400B730B2 /* first@2x.png in Resources */,
 				17BA09251649446400B730B2 /* second.png in Resources */,
 				17BA09271649446400B730B2 /* second@2x.png in Resources */,
+				17C294A8166F6FDA00E8F54B /* FHEntityViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +299,8 @@
 				17B54BAE1663752900339773 /* FHNewPinCategorieViewController.m in Sources */,
 				17B54BB4166CBA2200339773 /* Model.xcdatamodeld in Sources */,
 				17B54BB7166F2B0500339773 /* Annotation.m in Sources */,
+				17C294A2166F6E9900E8F54B /* FHDiashowViewController.m in Sources */,
+				17C294A7166F6FDA00E8F54B /* FHEntityViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

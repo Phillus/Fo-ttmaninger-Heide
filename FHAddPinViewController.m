@@ -55,7 +55,6 @@
 }
 
 - (void)backButtonIsPressed:(id)sender{
-    //NSLog(@"title %@", title.text);
     if([title.text isEqualToString:@""] || title.text == nil){
         UIAlertView *pleaseFill = [[UIAlertView alloc] initWithTitle:@"Leeres Felde" message:@"Bitte füllen sie das Feld Titel aus" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
         [pleaseFill show];
