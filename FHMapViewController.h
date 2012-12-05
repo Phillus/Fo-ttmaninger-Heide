@@ -20,6 +20,8 @@
 @property (strong, nonatomic) NSString *updatedDesc;
 @property (strong, nonatomic) NSString *updatedType;
 @property (nonatomic) BOOL update;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic) BOOL annotationIsSaved;
 
 -(IBAction)longPress:(UILongPressGestureRecognizer *)recognizer;
 -(void) updateCurrentAnnotation: (NSString *)title :(NSString *)desc: (NSString *)type;

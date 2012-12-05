@@ -12,6 +12,8 @@
 		17B54BAA16636F3A00339773 /* FHSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B54BA916636F3A00339773 /* FHSearchResultViewController.m */; };
 		17B54BAE1663752900339773 /* FHNewPinCategorieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B54BAD1663752900339773 /* FHNewPinCategorieViewController.m */; };
 		17B54BB4166CBA2200339773 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17B54BB2166CBA2200339773 /* Model.xcdatamodeld */; };
+		17B54BB7166F2B0500339773 /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B54BB6166F2B0500339773 /* Annotation.m */; };
+		17B54BB9166F2CA400339773 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B54BB8166F2CA400339773 /* CoreData.framework */; };
 		17BA09001649446300B730B2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BA08FF1649446300B730B2 /* UIKit.framework */; };
 		17BA09021649446300B730B2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BA09011649446300B730B2 /* Foundation.framework */; };
 		17BA09041649446300B730B2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BA09031649446300B730B2 /* CoreGraphics.framework */; };
@@ -41,6 +43,9 @@
 		17B54BAC1663752900339773 /* FHNewPinCategorieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHNewPinCategorieViewController.h; sourceTree = "<group>"; };
 		17B54BAD1663752900339773 /* FHNewPinCategorieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHNewPinCategorieViewController.m; sourceTree = "<group>"; };
 		17B54BB3166CBA2200339773 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		17B54BB5166F2B0500339773 /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
+		17B54BB6166F2B0500339773 /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
+		17B54BB8166F2CA400339773 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		17BA08FB1649446300B730B2 /* Föttmaninger Heide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Föttmaninger Heide.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17BA08FF1649446300B730B2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		17BA09011649446300B730B2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -73,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17B54BB9166F2CA400339773 /* CoreData.framework in Frameworks */,
 				17B4995B165A32A800B2F095 /* CoreLocation.framework in Frameworks */,
 				17D141F616510628007D7B97 /* MapKit.framework in Frameworks */,
 				17BA09001649446300B730B2 /* UIKit.framework in Frameworks */,
@@ -114,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				17B54BB2166CBA2200339773 /* Model.xcdatamodeld */,
+				17B54BB5166F2B0500339773 /* Annotation.h */,
+				17B54BB6166F2B0500339773 /* Annotation.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -140,6 +148,7 @@
 		17BA08FE1649446300B730B2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				17B54BB8166F2CA400339773 /* CoreData.framework */,
 				17B4995A165A32A800B2F095 /* CoreLocation.framework */,
 				17D141F516510628007D7B97 /* MapKit.framework */,
 				17BA08FF1649446300B730B2 /* UIKit.framework */,
@@ -275,6 +284,7 @@
 				17B54BAA16636F3A00339773 /* FHSearchResultViewController.m in Sources */,
 				17B54BAE1663752900339773 /* FHNewPinCategorieViewController.m in Sources */,
 				17B54BB4166CBA2200339773 /* Model.xcdatamodeld in Sources */,
+				17B54BB7166F2B0500339773 /* Annotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

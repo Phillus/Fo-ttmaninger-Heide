@@ -8,6 +8,8 @@
 
 #import "FHMapViewController.h"
 #import "FHAddPinViewController.h"
+#import "FHAppDelegate.h"
+#import "Annotation.h"
 
 @interface FHMapViewController ()
 
@@ -16,11 +18,17 @@
 
 @implementation FHMapViewController
 
-@synthesize longPressGesture, touchPoint, locManager, createNewAnnotaion, myMap;
+@synthesize longPressGesture, touchPoint, locManager, createNewAnnotaion, myMap, managedObjectContext, annotationIsSaved;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if (managedObjectContext == nil) {
+        managedObjectContext = [(FHAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    }
+    
+    annotationIsSaved = YES;
     
     [self.myMap showsUserLocation];
     
@@ -32,6 +40,7 @@
     // Set a movement threshold for new events.
     self.locManager.distanceFilter = 500;
     [self.locManager startUpdatingLocation];
+    [self.myMap addAnnotations:[self getAnnotationsFromCoreData]];
 }
 
 -(void) viewWillAppear:(BOOL)animated {
@@ -61,6 +70,11 @@
         
     }else if(recognizer.state == UIGestureRecognizerStateBegan){
         
+        if(annotationIsSaved == NO){
+            id<MKAnnotation> currentAnn = [self.myMap.selectedAnnotations objectAtIndex:0];
+            [self.myMap removeAnnotation:currentAnn];
+        }
+        
         touchPoint = [self.longPressGesture locationInView:self.myMap];
         CLLocationCoordinate2D touchMapCoordinate =
         [self.myMap convertPoint:touchPoint toCoordinateFromView:self.myMap];
@@ -72,7 +86,7 @@
         
         [self.myMap addAnnotation: newAnnotation];
         [self.myMap selectAnnotation:newAnnotation animated:YES];
-        
+        annotationIsSaved = NO;
         [self.myMap removeGestureRecognizer:recognizer];
         
     }else {
@@ -92,7 +106,7 @@
 
 -(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     
-    if(createNewAnnotaion == YES){
+    if(createNewAnnotaion == YES && annotationIsSaved == YES){
         
         CLLocationCoordinate2D touchMapCoordinate =
         [self.myMap convertPoint:touchPoint toCoordinateFromView:self.myMap];
@@ -106,6 +120,7 @@
         [self.myMap selectAnnotation:newAnnotation animated:YES];
         
         createNewAnnotaion = NO;
+        annotationIsSaved = NO;
     }
 }
 
@@ -132,6 +147,7 @@
         return pinView;
     }
 }
+
 -(void) updateCurrentAnnotation: (NSString *)title :(NSString *)desc: (NSString *)type {
     self.updatedTitle = title;
     self.updatedDesc = desc;
@@ -144,8 +160,11 @@
     [newAnnotation setSubtitle:self.updatedDesc];
     [self.myMap addAnnotation: newAnnotation];
     [self.myMap selectAnnotation:newAnnotation animated:YES];
+    annotationIsSaved = YES;
     
     [self.myMap removeAnnotation:currentAnnotation];
+    
+    [self addAnnotationToCoreDataWithTitle:title andDesc:desc andType:type andLongitude:[NSNumber numberWithDouble: newAnnotation.coordinate.longitude] andLatitude:[NSNumber numberWithDouble: newAnnotation.coordinate.latitude]];
 }
 
 -(void) mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
@@ -154,14 +173,109 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     id<MKAnnotation> currentAnnotation = [self.myMap.selectedAnnotations objectAtIndex:0];
+    Annotation *coreDataAnnotation = [self getAnnotationForMKAnnotation: currentAnnotation];
     FHAddPinViewController *pinViewController = (FHAddPinViewController *) segue.destinationViewController;
+    
     pinViewController.parentMapController = self;
     pinViewController.title = [[UILabel alloc] init];
-    pinViewController.title.text = [currentAnnotation title];
+    pinViewController.title.text = coreDataAnnotation.title;
     pinViewController.desc = [[UILabel alloc] init];
-    pinViewController.desc.text = [currentAnnotation subtitle];
-    NSLog(@"title: %@",[currentAnnotation title]);
+    pinViewController.desc.text = coreDataAnnotation.desc;
+    pinViewController.categorie = [[UILabel alloc] init];
+    pinViewController.categorie.text = coreDataAnnotation.type;
     [pinViewController setHidesBottomBarWhenPushed:YES];
+}
+
+-(void)addAnnotationToCoreDataWithTitle: (NSString *)title andDesc: (NSString *)desc andType: (NSString *)type andLongitude:(NSNumber *)longitude andLatitude:(NSNumber *)latitude {
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSError *error;
+    
+    //CHECK IF IS ALREADY EXISTING
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Annotation" inManagedObjectContext:context];
+    
+    [request setEntity:entity];
+    
+    if(request.entity != nil){
+        NSArray *arr = [context executeFetchRequest:request error:&error];
+        
+        for(Annotation *art in arr){
+            if(art.longitude==longitude && art.latitude==latitude){
+                return;
+            }
+        }
+    }
+    
+    // ADD INTO CORE DATA SQL
+    
+    Annotation *newArticle = [NSEntityDescription insertNewObjectForEntityForName:@"Annotation" inManagedObjectContext:context];
+    
+    newArticle.title = title;
+    newArticle.desc = desc;
+    newArticle.type = type;
+    newArticle.latitude = latitude;
+    newArticle.longitude = longitude;
+    
+    
+    if(![context save:&error]){
+        NSLog(@"DEPP");
+    }
+
+    
+}
+
+-(NSMutableArray *)getAnnotationsFromCoreData {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSError *error;
+    NSMutableArray *returnArr = [[NSMutableArray alloc]init];
+    
+    //REQUEST
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Annotation" inManagedObjectContext:context];
+    
+    [request setEntity:entity];
+    
+    if(request.entity != nil){
+        NSArray *arr = [context executeFetchRequest:request error:&error];
+        
+        for(Annotation *art in arr){
+            MKPointAnnotation *newAnnotation = [[MKPointAnnotation alloc] init];
+            [newAnnotation setCoordinate:CLLocationCoordinate2DMake([art.latitude doubleValue], [art.longitude doubleValue])];
+            [newAnnotation setTitle:art.title];
+            [newAnnotation setSubtitle:art.desc];
+            [self.myMap addAnnotation: newAnnotation];
+            [self.myMap selectAnnotation:newAnnotation animated:YES];
+            //[returnArr addObject:newAnnotation];
+        }
+    }
+    return returnArr;
+}
+
+-(Annotation *) getAnnotationForMKAnnotation: (MKPointAnnotation *)pointAnnotation {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSError *error;
+    
+    //REQUEST
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Annotation" inManagedObjectContext:context];
+    
+    [request setEntity:entity];
+    
+    if(request.entity != nil){
+        NSArray *arr = [context executeFetchRequest:request error:&error];
+        
+        for(Annotation *art in arr){
+            if([art.latitude doubleValue]==pointAnnotation.coordinate.latitude && [art.longitude doubleValue]==pointAnnotation.coordinate.longitude){
+                return art;
+            }
+        }
+    }
+    
+    return nil;
 }
 
 @end
