@@ -14,6 +14,11 @@
 		17B54BB4166CBA2200339773 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17B54BB2166CBA2200339773 /* Model.xcdatamodeld */; };
 		17B54BB7166F2B0500339773 /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B54BB6166F2B0500339773 /* Annotation.m */; };
 		17B54BB9166F2CA400339773 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B54BB8166F2CA400339773 /* CoreData.framework */; };
+		17B8B5DC167784AF0011B3E5 /* IMG_1585.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 17B8B5D7167784AF0011B3E5 /* IMG_1585.jpg */; };
+		17B8B5DD167784AF0011B3E5 /* IMG_3311.JPG (1).jpg in Resources */ = {isa = PBXBuildFile; fileRef = 17B8B5D8167784AF0011B3E5 /* IMG_3311.JPG (1).jpg */; };
+		17B8B5DE167784AF0011B3E5 /* IMG_3365.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 17B8B5D9167784AF0011B3E5 /* IMG_3365.JPG */; };
+		17B8B5DF167784AF0011B3E5 /* IMG_4689.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 17B8B5DA167784AF0011B3E5 /* IMG_4689.jpg */; };
+		17B8B5E0167784AF0011B3E5 /* IMG_6857.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 17B8B5DB167784AF0011B3E5 /* IMG_6857.jpg */; };
 		17BA09001649446300B730B2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BA08FF1649446300B730B2 /* UIKit.framework */; };
 		17BA09021649446300B730B2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BA09011649446300B730B2 /* Foundation.framework */; };
 		17BA09041649446300B730B2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BA09031649446300B730B2 /* CoreGraphics.framework */; };
@@ -49,6 +54,11 @@
 		17B54BB5166F2B0500339773 /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
 		17B54BB6166F2B0500339773 /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
 		17B54BB8166F2CA400339773 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		17B8B5D7167784AF0011B3E5 /* IMG_1585.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1585.jpg; sourceTree = "<group>"; };
+		17B8B5D8167784AF0011B3E5 /* IMG_3311.JPG (1).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "IMG_3311.JPG (1).jpg"; sourceTree = "<group>"; };
+		17B8B5D9167784AF0011B3E5 /* IMG_3365.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_3365.JPG; sourceTree = "<group>"; };
+		17B8B5DA167784AF0011B3E5 /* IMG_4689.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_4689.jpg; sourceTree = "<group>"; };
+		17B8B5DB167784AF0011B3E5 /* IMG_6857.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_6857.jpg; sourceTree = "<group>"; };
 		17BA08FB1649446300B730B2 /* Föttmaninger Heide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Föttmaninger Heide.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17BA08FF1649446300B730B2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		17BA09011649446300B730B2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -199,6 +209,11 @@
 		17BA092D1649449F00B730B2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				17B8B5D7167784AF0011B3E5 /* IMG_1585.jpg */,
+				17B8B5D8167784AF0011B3E5 /* IMG_3311.JPG (1).jpg */,
+				17B8B5D9167784AF0011B3E5 /* IMG_3365.JPG */,
+				17B8B5DA167784AF0011B3E5 /* IMG_4689.jpg */,
+				17B8B5DB167784AF0011B3E5 /* IMG_6857.jpg */,
 				17BA091D1649446400B730B2 /* first.png */,
 				17BA091F1649446400B730B2 /* first@2x.png */,
 				17BA09241649446400B730B2 /* second.png */,
@@ -279,6 +294,11 @@
 				17BA09251649446400B730B2 /* second.png in Resources */,
 				17BA09271649446400B730B2 /* second@2x.png in Resources */,
 				17C294A8166F6FDA00E8F54B /* FHEntityViewController.xib in Resources */,
+				17B8B5DC167784AF0011B3E5 /* IMG_1585.jpg in Resources */,
+				17B8B5DD167784AF0011B3E5 /* IMG_3311.JPG (1).jpg in Resources */,
+				17B8B5DE167784AF0011B3E5 /* IMG_3365.JPG in Resources */,
+				17B8B5DF167784AF0011B3E5 /* IMG_4689.jpg in Resources */,
+				17B8B5E0167784AF0011B3E5 /* IMG_6857.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +402,7 @@
 				GCC_PREFIX_HEADER = "Föttmaninger Heide/Föttmaninger Heide-Prefix.pch";
 				INFOPLIST_FILE = "Föttmaninger Heide/Föttmaninger Heide-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -393,6 +414,7 @@
 				GCC_PREFIX_HEADER = "Föttmaninger Heide/Föttmaninger Heide-Prefix.pch";
 				INFOPLIST_FILE = "Föttmaninger Heide/Föttmaninger Heide-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

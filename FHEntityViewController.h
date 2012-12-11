@@ -10,9 +10,11 @@
 
 @interface FHEntityViewController : UIViewController{
     IBOutlet UILabel *pageNumberLabel;
+    IBOutlet UIImageView *myImage;
     int pageNumber;
 }
 @property (nonatomic, retain) UILabel *pageNumberLabel;
+@property (nonatomic, retain) IBOutlet UIImageView *myImage;
 - (id)initWithPageNumber:(int)page;
 
 @end

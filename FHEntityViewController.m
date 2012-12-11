@@ -13,7 +13,7 @@
 @end
 
 @implementation FHEntityViewController
-@synthesize pageNumberLabel;
+@synthesize pageNumberLabel, myImage;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,7 +26,7 @@
 
 - (id)initWithPageNumber:(int)page {
     if (self = [super initWithNibName:@"FHEntityViewController" bundle:nil])    {
-        pageNumber = page;
+        
     }
     return self;
 }

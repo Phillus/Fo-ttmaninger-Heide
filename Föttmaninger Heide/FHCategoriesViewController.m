@@ -98,7 +98,7 @@
     }
     
     if(isEmpty == YES && [statusArray count]>0){
-        return 2; // SUCHERGEBNIS ANZEIGEN
+        return 5; // SUCHERGEBNIS ANZEIGEN
     }else {
         if(!isEmpty){
             NSLog(@"allKeys %@",[[tmpDic allKeys]sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]);

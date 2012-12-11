@@ -9,16 +9,21 @@
 #import <UIKit/UIKit.h>
 
 @interface FHDiashowViewController : UIViewController <UIScrollViewDelegate> {
+    IBOutlet UIScrollView *topScrollView;
     IBOutlet UIScrollView *scrollView;
     IBOutlet UIPageControl *pageControl;
     NSMutableArray *viewControllers;
     BOOL pageControlUsed;
+    BOOL topPageControlUsed;
 }
 
 @property (nonatomic, retain) UIScrollView *scrollView;
+@property (nonatomic, retain) UIScrollView *topScrollView;
 @property (nonatomic, retain) UIPageControl *pageControl;
 @property (nonatomic, retain) NSMutableArray *viewControllers;
 @property (nonatomic) int kNumberOfPages;
+@property (nonatomic) int prevPage;
 - (IBAction)changePage:(id)sender;
+@property (nonatomic, retain) NSMutableArray *imageArray;
 
 @end
