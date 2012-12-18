@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FHAddPinViewController.h"
+#import "FHEntityTableViewController.h"
 
 @interface FHNewPinCategorieViewController : UITableViewController
 
@@ -15,5 +16,6 @@
 @property (strong, nonatomic) NSMutableArray *colorArr;
 @property (strong, nonatomic) NSString *categorie;
 @property (strong, nonatomic) FHAddPinViewController *prevController;
+@property (strong, nonatomic) FHEntityTableViewController *prevEntityController;
 
 @end

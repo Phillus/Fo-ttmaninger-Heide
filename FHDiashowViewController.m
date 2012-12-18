@@ -10,6 +10,7 @@
 #import "FHEntityViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "FHEntityTableViewController.h"
+#import "FHEntityTableViewController.h"
 
 @interface FHDiashowViewController ()
 
@@ -200,6 +201,12 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    FHEntityTableViewController *pinViewController = (FHEntityTableViewController *) segue.destinationViewController;
+    
+    pinViewController.parentSlideshowController = self;
 }
 
 @end

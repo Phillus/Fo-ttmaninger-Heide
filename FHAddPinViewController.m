@@ -37,7 +37,7 @@
     [super viewDidLoad];
     NSLog(@"title.text = %@",title.text);
     self.navigationItem.hidesBackButton = YES;
-	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back"
+	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Speichern"
                                                                              style:UIBarButtonItemStyleBordered target:self action:@selector(backButtonIsPressed:)];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

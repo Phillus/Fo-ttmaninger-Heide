@@ -458,7 +458,7 @@
                                 </constraints>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="descCell" rowHeight="124" id="7Ue-hd-XZr">
-                                <rect key="frame" x="0.0" y="135" width="320" height="125"/>
+                                <rect key="frame" x="0.0" y="135" width="320" height="124"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="10" y="0.0" width="300" height="123"/>
@@ -485,15 +485,82 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="4Pw-vy-Yak" firstAttribute="centerX" secondItem="7Ue-hd-XZr" secondAttribute="centerX" type="default" id="94g-DK-KN8"/>
                                     <constraint firstItem="4Pw-vy-Yak" firstAttribute="leading" secondItem="7Ue-hd-XZr" secondAttribute="leading" constant="10" id="AQE-Rj-SkF"/>
+                                    <constraint firstAttribute="bottom" secondItem="4Pw-vy-Yak" secondAttribute="bottom" constant="81" id="BoR-fL-pZj"/>
+                                    <constraint firstItem="oxY-qL-Cfu" firstAttribute="top" secondItem="7Ue-hd-XZr" secondAttribute="top" constant="47" id="NPe-iY-nz7"/>
+                                    <constraint firstItem="oxY-qL-Cfu" firstAttribute="centerX" secondItem="7Ue-hd-XZr" secondAttribute="centerX" type="default" id="bJA-zn-ZvN"/>
                                     <constraint firstItem="4Pw-vy-Yak" firstAttribute="top" secondItem="7Ue-hd-XZr" secondAttribute="top" constant="42" id="hyY-VY-cqq"/>
                                     <constraint firstItem="oxY-qL-Cfu" firstAttribute="centerX" secondItem="4Pw-vy-Yak" secondAttribute="centerX" type="default" id="j2a-mc-tkm"/>
                                     <constraint firstItem="36k-D7-Iad" firstAttribute="top" secondItem="7Ue-hd-XZr" secondAttribute="top" constant="11" id="mcO-VH-w7L"/>
-                                    <constraint firstAttribute="bottom" secondItem="4Pw-vy-Yak" secondAttribute="bottom" constant="82" id="mdo-Wx-lXv"/>
-                                    <constraint firstItem="oxY-qL-Cfu" firstAttribute="top" secondItem="7Ue-hd-XZr" secondAttribute="top" constant="46" id="mgF-CM-cYG"/>
                                     <constraint firstItem="oxY-qL-Cfu" firstAttribute="leading" secondItem="36k-D7-Iad" secondAttribute="leading" type="default" id="oBo-oZ-2Pn"/>
                                 </constraints>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="mapCell" rowHeight="204" id="aqw-FG-uef" customClass="FHCustomEmptyCell">
+                                <rect key="frame" x="0.0" y="259" width="320" height="204"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="0.0" width="300" height="203"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" translatesAutoresizingMaskIntoConstraints="NO" id="1MG-6F-Sql">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="290" id="BXK-tQ-wN2"/>
+                                                <constraint firstAttribute="height" constant="191" id="Eii-xq-QW0"/>
+                                            </constraints>
+                                        </mapView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="1MG-6F-Sql" firstAttribute="top" secondItem="aqw-FG-uef" secondAttribute="top" constant="6" id="LB2-Tv-ocF"/>
+                                    <constraint firstItem="1MG-6F-Sql" firstAttribute="centerX" secondItem="aqw-FG-uef" secondAttribute="centerX" type="default" id="Rmb-xt-EJN"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="myMap" destination="1MG-6F-Sql" id="m2d-8J-rZD"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="photosCell" rowHeight="110" id="bUk-1y-jjw" customClass="FHCustomEmptyCell">
+                                <rect key="frame" x="0.0" y="463" width="320" height="111"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="0.0" width="300" height="109"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a0E-hX-NlA">
+                                            <color key="backgroundColor" red="0.77159373590000002" green="0.97826107929999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="285" id="QFV-C1-GRI"/>
+                                                <constraint firstAttribute="height" constant="90" id="THg-9C-TSL"/>
+                                            </constraints>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tjD-yd-fwv">
+                                                <size key="itemSize" width="89" height="89"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <cells>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="gN7-fV-KnC">
+                                                    <rect key="frame" x="0.0" y="0.0" width="89" height="89"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                        <rect key="frame" x="0.0" y="0.0" width="89" height="89"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    </view>
+                                                    <color key="backgroundColor" red="0.00036250971750000001" green="0.67936905569999995" blue="0.47581042280000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </collectionViewCell>
+                                            </cells>
+                                        </collectionView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="a0E-hX-NlA" firstAttribute="centerY" secondItem="bUk-1y-jjw" secondAttribute="centerY" type="default" id="e95-r8-JyE"/>
+                                    <constraint firstItem="a0E-hX-NlA" firstAttribute="centerX" secondItem="bUk-1y-jjw" secondAttribute="centerX" type="default" id="ee6-Qb-RoE"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="collectionView" destination="a0E-hX-NlA" id="SO6-EX-9rC"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -501,6 +568,7 @@
                             <outlet property="delegate" destination="VHu-BT-SOL" id="Rud-Rj-eFy"/>
                         </connections>
                     </tableView>
+                    <nil key="simulatedTopBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EgP-e5-cxp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -527,39 +595,6 @@
         <image name="first.png" width="30" height="30"/>
         <image name="second.png" width="30" height="30"/>
     </resources>
-    <classes>
-        <class className="FHAddPinViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FHAddPinViewController.h"/>
-        </class>
-        <class className="FHCatNavViewController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FHCatNavViewController.h"/>
-        </class>
-        <class className="FHCategoriesViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FHCategoriesViewController.h"/>
-        </class>
-        <class className="FHDiashowViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FHDiashowViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="changePage:"/>
-                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="topScrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="FHEntityTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FHEntityTableViewController.h"/>
-        </class>
-        <class className="FHMapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FHMapViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="longPress:" candidateClass="UILongPressGestureRecognizer"/>
-                <relationship kind="outlet" name="myMap" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

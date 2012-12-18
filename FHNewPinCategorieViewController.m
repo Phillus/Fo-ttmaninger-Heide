@@ -15,7 +15,7 @@
 
 @implementation FHNewPinCategorieViewController
 
-@synthesize catArr, prevController, colorArr;
+@synthesize catArr, prevController, colorArr, prevEntityController;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -134,8 +134,13 @@
     }
     
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
-    prevController.categorie.text = selectedCell.textLabel.text;
-    prevController.categorieView.backgroundColor = selectedCell.backgroundColor;
+    if(prevController){
+        prevController.categorie.text = selectedCell.textLabel.text;
+        prevController.categorieView.backgroundColor = selectedCell.backgroundColor;
+    }else{
+        prevEntityController.categorie.text = selectedCell.textLabel.text;
+        prevEntityController.categorieView.backgroundColor = selectedCell.backgroundColor;
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

@@ -14,7 +14,7 @@
 @property (strong, nonatomic) UILabel *categorie;
 @property (strong, nonatomic) UIView *categorieView;
 @property (strong, nonatomic) UILabel *title;
-@property (strong, nonatomic) UILabel *desc;
+@property (strong, nonatomic) UITextField *desc;
 @property (strong, nonatomic) FHMapViewController *parentMapController;
 
 @end
