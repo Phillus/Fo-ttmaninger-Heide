@@ -8,6 +8,8 @@
 
 #import "FHDiashowViewController.h"
 #import "FHEntityViewController.h"
+#import <QuartzCore/QuartzCore.h>
+#import "FHEntityTableViewController.h"
 
 @interface FHDiashowViewController ()
 
@@ -15,12 +17,15 @@
 
 @implementation FHDiashowViewController
 
-@synthesize pageControl, viewControllers, scrollView, kNumberOfPages, topScrollView, prevPage, imageArray;
+@synthesize pageControl, viewControllers, scrollView, kNumberOfPages, topScrollView, prevPage, imageArray, topViewImageArray;
+
+#define TOP_IMAGE_VIEW_WIDTH @100
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    topViewImageArray = [[NSMutableArray alloc]init];
     NSMutableArray *controllers = [[NSMutableArray alloc] init];
     for (unsigned i = 0; i < kNumberOfPages; i++) {
         [controllers addObject:[NSNull null]];
@@ -43,22 +48,30 @@
     scrollView.delegate = self;
     
     // TOP SCROLL VIEW
-    //topScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,320,66)];
     topScrollView.pagingEnabled = NO;
-    topScrollView.contentSize = CGSizeMake(320.0 * kNumberOfPages, 64.0);
+    topScrollView.contentSize = CGSizeMake(100 * kNumberOfPages, 64.0);
     topScrollView.showsHorizontalScrollIndicator = NO;
     topScrollView.showsVerticalScrollIndicator = NO;
     topScrollView.scrollsToTop = NO;
     topScrollView.delegate = self;
+    //topScrollView.contentInset = UIEdgeInsetsMake(0.0, 110, 0.0, 0.0);
+    //topScrollView.contentOffset = CGPointMake(110,0);
     
     pageControl.numberOfPages = kNumberOfPages;
     
     for (unsigned i = 0; i < kNumberOfPages; i++) {
         [self loadScrollViewWithPage:i];
     }
-    
     pageControl.currentPage = 0;
+    
+    
 }
+
+- (void)infoButtonAction
+{
+    [self performSegueWithIdentifier:@"showEntityDetail" sender:self];
+}
+
 
 -(void) viewWillAppear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:NO animated:NO];
@@ -70,11 +83,11 @@
     
     FHEntityViewController *controller = [self.viewControllers objectAtIndex:page];
     if ((NSNull *)controller == [NSNull null]) {
-        controller = [[FHEntityViewController alloc] initWithPageNumber:page];
+        controller = [[FHEntityViewController alloc] initWithPageNumber:page:self];
         [self.viewControllers replaceObjectAtIndex:page withObject:controller];
     }
     
-    UIImageView *controllerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 64.0)];
+    UIImageView *controllerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [TOP_IMAGE_VIEW_WIDTH doubleValue], 64.0)];
     controllerImageView.contentMode = UIViewContentModeScaleAspectFit;
     controllerImageView.image = [imageArray objectAtIndex:page];
     
@@ -85,18 +98,19 @@
         controller.view.frame = frame;
         [scrollView addSubview:controller.view];
         
+        CGRect imageFrame = controllerImageView.frame;
+        imageFrame.origin.x = [TOP_IMAGE_VIEW_WIDTH doubleValue]*page;
+        imageFrame.origin.y = 0;
+        controllerImageView.frame = imageFrame;
+        [topScrollView addSubview:controllerImageView];
+        
+    }
+    
+    if([topViewImageArray count]<page+1){
+        [topViewImageArray addObject:controllerImageView];
         if(page==0){
-            CGRect imageFrame = controllerImageView.frame;
-            imageFrame.origin.x = (320/2)-(controllerImageView.frame.size.width /2);
-            imageFrame.origin.y = 0;
-            controllerImageView.frame = imageFrame;
-            [topScrollView addSubview:controllerImageView];
-        }else {
-            CGRect imageFrame = controllerImageView.frame;
-            imageFrame.origin.x = ((320/2)+(controllerImageView.frame.size.width /2)+10) + ((page-1)*(controllerImageView.frame.size.width +10));
-            imageFrame.origin.y = 0;
-            controllerImageView.frame = imageFrame;
-            [topScrollView addSubview:controllerImageView];
+            [controllerImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+            [controllerImageView.layer setBorderWidth: 2.0];
         }
     }
     
@@ -134,10 +148,6 @@
     int page = pageControl.currentPage;
     //NSLog(@"change page to %i",page);
     
-    [self loadScrollViewWithPage:page - 1];
-    [self loadScrollViewWithPage:page];
-    [self loadScrollViewWithPage:page + 1];
-    
     [self changeTopPage];
     
     CGRect frame = scrollView.frame;
@@ -149,27 +159,30 @@
 
 -(void)changeTopPage {
     int page = pageControl.currentPage;
+    
+    
     NSLog(@"change page to %i",page);
-    //für top scroll scrollrecttovisible ausführen
-    if(page==0){
-        CGRect imageFrame = CGRectMake(0,0,100,66);
-        imageFrame.origin.x = (320/2)-(imageFrame.size.width /2);
+    
+        CGRect imageFrame = CGRectMake(0,0,100,64);
+        NSLog(@"scrollView.origin : %f",scrollView.contentOffset.x);
+        
+        imageFrame.origin.x = [TOP_IMAGE_VIEW_WIDTH doubleValue]*page;
         imageFrame.origin.y = 0;
-        imageFrame.origin.x = imageFrame.origin.x - ((320/2)-(imageFrame.size.width /2));
-        [topScrollView scrollRectToVisible:imageFrame animated:YES];
-    }else {
-        CGRect imageFrame = CGRectMake(0,0,100,66);
-        imageFrame.origin.x = ((320/2)+(imageFrame.size.width /2)+10) + ((page-1)*(imageFrame.size.width +10));
-        imageFrame.origin.y = 0;
-        if(page>prevPage){
-            imageFrame.origin.x = imageFrame.origin.x + (320/2)-(imageFrame.size.width /2);
-        }else {
-            imageFrame.origin.x = imageFrame.origin.x - ((320/2)-(imageFrame.size.width /2));
-
-        }
+        
         NSLog(@"frame.x = %f",imageFrame.origin.x);
-        [topScrollView scrollRectToVisible:imageFrame animated:YES];
+    
+        [topScrollView setContentOffset:CGPointMake(imageFrame.origin.x,0) animated:YES];
+        //[topScrollView scrollRectToVisible:imageFrame animated:YES];
+    
+    UIImageView *tmpImageView;
+    for(int i=0;i<([topViewImageArray count]);i++){
+        tmpImageView = (UIImageView *)[topViewImageArray objectAtIndex:i];
+        [tmpImageView.layer setBorderWidth: 0.0];
     }
+    
+    tmpImageView = (UIImageView *)[topViewImageArray objectAtIndex:page];
+    [tmpImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+    [tmpImageView.layer setBorderWidth: 2.0];
     
     prevPage = page;
 }

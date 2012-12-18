@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1722CAA2165A73B000A8ED02 /* FHAddPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1722CAA1165A73B000A8ED02 /* FHAddPinViewController.m */; };
+		17B22B5E16806D6D00359A14 /* FHCustonPhotoScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B22B5D16806D6D00359A14 /* FHCustonPhotoScrollView.m */; };
+		17B22B6816808A6F00359A14 /* FHEntityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B22B6616808A6E00359A14 /* FHEntityTableViewController.m */; };
 		17B4995B165A32A800B2F095 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B4995A165A32A800B2F095 /* CoreLocation.framework */; };
 		17B54BAA16636F3A00339773 /* FHSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B54BA916636F3A00339773 /* FHSearchResultViewController.m */; };
 		17B54BAE1663752900339773 /* FHNewPinCategorieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B54BAD1663752900339773 /* FHNewPinCategorieViewController.m */; };
@@ -45,6 +47,10 @@
 /* Begin PBXFileReference section */
 		1722CAA0165A73B000A8ED02 /* FHAddPinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHAddPinViewController.h; sourceTree = "<group>"; };
 		1722CAA1165A73B000A8ED02 /* FHAddPinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHAddPinViewController.m; sourceTree = "<group>"; };
+		17B22B5C16806D6D00359A14 /* FHCustonPhotoScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHCustonPhotoScrollView.h; sourceTree = "<group>"; };
+		17B22B5D16806D6D00359A14 /* FHCustonPhotoScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHCustonPhotoScrollView.m; sourceTree = "<group>"; };
+		17B22B6516808A6E00359A14 /* FHEntityTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHEntityTableViewController.h; sourceTree = "<group>"; };
+		17B22B6616808A6E00359A14 /* FHEntityTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHEntityTableViewController.m; sourceTree = "<group>"; };
 		17B4995A165A32A800B2F095 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		17B54BA816636F3A00339773 /* FHSearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHSearchResultViewController.h; sourceTree = "<group>"; };
 		17B54BA916636F3A00339773 /* FHSearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHSearchResultViewController.m; sourceTree = "<group>"; };
@@ -122,6 +128,10 @@
 				17C294A4166F6FDA00E8F54B /* FHEntityViewController.h */,
 				17C294A5166F6FDA00E8F54B /* FHEntityViewController.m */,
 				17C294A6166F6FDA00E8F54B /* FHEntityViewController.xib */,
+				17B22B5C16806D6D00359A14 /* FHCustonPhotoScrollView.h */,
+				17B22B5D16806D6D00359A14 /* FHCustonPhotoScrollView.m */,
+				17B22B6516808A6E00359A14 /* FHEntityTableViewController.h */,
+				17B22B6616808A6E00359A14 /* FHEntityTableViewController.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -321,6 +331,8 @@
 				17B54BB7166F2B0500339773 /* Annotation.m in Sources */,
 				17C294A2166F6E9900E8F54B /* FHDiashowViewController.m in Sources */,
 				17C294A7166F6FDA00E8F54B /* FHEntityViewController.m in Sources */,
+				17B22B5E16806D6D00359A14 /* FHCustonPhotoScrollView.m in Sources */,
+				17B22B6816808A6F00359A14 /* FHEntityTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

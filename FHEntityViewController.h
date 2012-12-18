@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FHDiashowViewController.h"
 
 @interface FHEntityViewController : UIViewController{
     IBOutlet UILabel *pageNumberLabel;
@@ -15,6 +16,8 @@
 }
 @property (nonatomic, retain) UILabel *pageNumberLabel;
 @property (nonatomic, retain) IBOutlet UIImageView *myImage;
-- (id)initWithPageNumber:(int)page;
+@property (nonatomic, retain) IBOutlet UIView *infoButtonView;
+- (id)initWithPageNumber:(int)page:(FHDiashowViewController *)diashowControllers;
+@property (nonatomic, retain) FHDiashowViewController *diashowController;
 
 @end

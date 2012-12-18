@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FHCustonPhotoScrollView.h"
 
 @interface FHDiashowViewController : UIViewController <UIScrollViewDelegate> {
     IBOutlet UIScrollView *topScrollView;
@@ -25,5 +26,7 @@
 @property (nonatomic) int prevPage;
 - (IBAction)changePage:(id)sender;
 @property (nonatomic, retain) NSMutableArray *imageArray;
+@property (nonatomic, retain) NSMutableArray *topViewImageArray;
+-(void) infoButtonAction;
 
 @end

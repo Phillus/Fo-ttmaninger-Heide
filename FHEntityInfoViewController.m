@@ -1,18 +1,18 @@
 //
-//  FHCatNavViewController.m
+//  FHEntityInfoViewController.m
 //  Föttmaninger Heide
 //
-//  Created by Philipp Sporrer on 06.11.12.
+//  Created by Philipp Sporrer on 18.12.12.
 //  Copyright (c) 2012 Philipp Sporrer. All rights reserved.
 //
 
-#import "FHCatNavViewController.h"
+#import "FHEntityInfoViewController.h"
 
-@interface FHCatNavViewController ()
+@interface FHEntityInfoViewController ()
 
 @end
 
-@implementation FHCatNavViewController
+@implementation FHEntityInfoViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,10 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    UIBarButtonItem *_backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:nil action:nil];
-    self.navigationItem.backBarButtonItem = _backButton;
-    
 	// Do any additional setup after loading the view.
 }
 
