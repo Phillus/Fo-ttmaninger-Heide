@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FHMapViewController.h"
+#import "FHPersonalTagsViewController.h"
 
 @interface FHAddPinViewController : UITableViewController
 
@@ -16,5 +17,6 @@
 @property (strong, nonatomic) UILabel *title;
 @property (strong, nonatomic) UITextField *desc;
 @property (strong, nonatomic) FHMapViewController *parentMapController;
+@property (strong, nonatomic) FHPersonalTagsViewController *parentParsonalTagController;
 
 @end

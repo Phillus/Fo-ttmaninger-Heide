@@ -163,7 +163,7 @@
     
     [self.myMap removeAnnotation:currentAnnotation];
     
-    [self addAnnotationToCoreDataWithTitle:title andDesc:desc andType:type andLongitude:[NSNumber numberWithDouble: newAnnotation.coordinate.longitude] andLatitude:[NSNumber numberWithDouble: newAnnotation.coordinate.latitude]];
+    [self addAnnotationToCoreDataWithTitle:title andDesc:desc andType:type andLongitude:newAnnotation.coordinate.longitude andLatitude:newAnnotation.coordinate.latitude];
     
     
     [self.myMap selectAnnotation:newAnnotation animated:YES];
@@ -186,9 +186,11 @@
     pinViewController.categorie = [[UILabel alloc] init];
     pinViewController.categorie.text = coreDataAnnotation.type;
     [pinViewController setHidesBottomBarWhenPushed:YES];
+    
+    NSLog(@"type when catched: %@", coreDataAnnotation.type);
 }
 
--(void)addAnnotationToCoreDataWithTitle: (NSString *)title andDesc: (NSString *)desc andType: (NSString *)type andLongitude:(NSNumber *)longitude andLatitude:(NSNumber *)latitude {
+-(void)addAnnotationToCoreDataWithTitle: (NSString *)title andDesc: (NSString *)desc andType: (NSString *)type andLongitude:(double)longitude andLatitude:(double)latitude {
     
     NSManagedObjectContext *context = [self managedObjectContext];
     NSError *error;
@@ -204,7 +206,17 @@
         NSArray *arr = [context executeFetchRequest:request error:&error];
         
         for(Annotation *art in arr){
-            if(art.longitude==longitude && art.latitude==latitude){
+            if([art.longitude doubleValue]==longitude && [art.latitude doubleValue]==latitude){
+                NSLog(@"existing");
+                art.type = type;
+                art.title = self.updatedTitle;
+                art.desc = self.updatedDesc;
+                NSLog(@"type when saved: %@",type);
+                
+                if(![context save:&error]){
+                    NSLog(@"DEPP");
+                }
+
                 return;
             }
         }
@@ -217,9 +229,9 @@
     newArticle.title = title;
     newArticle.desc = desc;
     newArticle.type = type;
-    newArticle.latitude = latitude;
-    newArticle.longitude = longitude;
-    
+    newArticle.latitude = [NSNumber numberWithDouble: latitude];
+    newArticle.longitude = [NSNumber numberWithDouble: longitude];
+    NSLog(@"type when saved: %@",type);
     
     if(![context save:&error]){
         NSLog(@"DEPP");
@@ -272,10 +284,12 @@
         
         for(Annotation *art in arr){
             if([art.latitude doubleValue]==pointAnnotation.coordinate.latitude && [art.longitude doubleValue]==pointAnnotation.coordinate.longitude){
+                NSLog(@"art.type = %@",art.type);
                 return art;
             }
         }
     }
+    
     
     return nil;
 }

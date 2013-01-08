@@ -57,6 +57,22 @@
 {
     // Override point for customization after application launch.
     //[self addToCoreData];
+    UIImage *navBarImage = [UIImage imageNamed:@"nav-bar-green.png"];
+    
+    [[UINavigationBar appearance] setBackgroundImage:navBarImage
+                                       forBarMetrics:UIBarMetricsDefault];
+    
+    
+    UIImage *barButton = [[UIImage imageNamed:@"edit-button-green.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 5, 15, 5)];
+    
+    [[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateNormal
+                                          barMetrics:UIBarMetricsDefault];
+    
+    UIImage *backButton = [[UIImage imageNamed:@"back-button-green.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0,10,0,4)];
+    
+    
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal
+                                                    barMetrics:UIBarMetricsDefault];
     return YES;
 }
 							

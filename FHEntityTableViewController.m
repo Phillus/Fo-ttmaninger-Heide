@@ -57,13 +57,13 @@
 
 #pragma mark - Table view data source
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if(section == 0){
+    if(section == 1){
         return @"Allgemeine Informationen";
     }
-    if(section == 1){
+    if(section == 2){
         return @"Tags";
     }
-    if(section == 2){
+    if(section == 3){
         return @"Photos";
     }
     return nil;
@@ -72,7 +72,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 3;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -80,12 +80,15 @@
     // Return the number of rows in the section.
     switch(section){
         case 0:
-            return 3;
-            break;
-        case 1:
             return 1;
             break;
+        case 1:
+            return 3;
+            break;
         case 2:
+            return 1;
+            break;
+        case 3:
             return 1;
             break;
     }
@@ -99,8 +102,25 @@
     UITableViewCell *cell = [[UITableViewCell alloc]init];
     UILabel *tmpLabel = [[UILabel alloc] init];
     FHCustomEmptyCell *customCell;
+    UIButton *button;
     switch (indexPath.section){
         case 0:
+            CellIdentifier = @"buttonCell";
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+            //cell.textLabel.text = title.text;
+            button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [button addTarget:self
+                       action:@selector(backButtonPressed:)
+             forControlEvents:UIControlEventTouchDown];
+            [button setTitle:@"Zurück" forState:UIControlStateNormal];
+            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            button.frame = CGRectMake(10.0f, 0.0f, 300.0f, 46.0f);
+            [button setBackgroundImage:[[UIImage imageNamed:@"blackButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
+            [button setBackgroundImage:[[UIImage imageNamed:@"blackButtonHighlighted.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateHighlighted];
+            [cell addSubview:button];
+            return  cell;
+            break;
+        case 1:
             switch(indexPath.row){
                 case 0:
                     CellIdentifier = @"titleCell";
@@ -132,7 +152,7 @@
                     break;
             }
             break;
-        case 1:
+        case 2:
             CellIdentifier = @"mapCell";
             customCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
             self.myMap = customCell.myMap;
@@ -149,7 +169,7 @@
             [self.myMap addAnnotations:[self getAnnotationsFromCoreData]];
             return cell;
             break;
-        case 2:
+        case 3:
             CellIdentifier = @"photosCell";
             customCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
             self.collectionView = customCell.collectionView;
@@ -166,17 +186,17 @@
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath: (NSIndexPath *) indexPath {
     switch (indexPath.section){
-        case 0:
+        case 1:
             if(indexPath.row == 2){
                 return 124;
             }else {
                 return 44;
             }
             break;
-        case 1:
+        case 2:
             return 204;
             break;
-        case 2:
+        case 3:
             return 110;
             break;
     }
@@ -252,6 +272,12 @@
     
     
 }*/
+
+#pragma mark Actions
+
+- (void)backButtonPressed:(id)sender{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 #pragma mark MAPS
 

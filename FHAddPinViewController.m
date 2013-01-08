@@ -15,7 +15,7 @@
 
 @implementation FHAddPinViewController
 
-@synthesize title, categorie, desc, categorieView, parentMapController;
+@synthesize title, categorie, desc, categorieView, parentMapController, parentParsonalTagController;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,11 +34,21 @@
 
 - (void)viewDidLoad
 {
+    
+    /* TO-DO:
+        1. Config für Farben-Kategorie Zuordnung
+     
+     
+     
+     */
+    
     [super viewDidLoad];
     NSLog(@"title.text = %@",title.text);
     self.navigationItem.hidesBackButton = YES;
 	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Speichern"
                                                                              style:UIBarButtonItemStyleBordered target:self action:@selector(backButtonIsPressed:)];
+    
+    NSLog(@"type: %@",categorie.text);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -63,6 +73,7 @@
         [pleaseFill show];
     }else{
         [parentMapController updateCurrentAnnotation:title.text :desc.text :categorie.text];
+        [parentParsonalTagController updateCurrentAnnotation:title.text :desc.text :categorie.text];
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
@@ -86,6 +97,7 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [[UITableViewCell alloc]init];
     UILabel *tmpLabel = [[UILabel alloc] init];
+    UILabel *tmpCat = categorie;
     
     switch(indexPath.row){
         case 0:
@@ -102,6 +114,7 @@
             cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
             categorie = (UILabel *) [[cell viewWithTag:22] viewWithTag:23];
             categorieView = (UIView *) [cell viewWithTag:22];
+            categorie.text = tmpCat.text;
             return  cell;
             break;
         case 2:
